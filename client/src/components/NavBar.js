@@ -1,17 +1,21 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import { NavWrapper } from './NavBarStyle'
 
-function NavBar(props){
-    console.log(props)
+function NavBar(props) {
     const history = useHistory()
-    return(
-        <nav>
+    console.log("estoy es history")
+    console.log(history)
+    return (
+        <NavWrapper>
+            <div>
+            <Link to="/" className="logo">PHONE CATALOGUE</Link>
             <ul>
-                <li><Link onClick={()=>history.goBack()}>Go Back</Link></li>
-                <li><Link to="/">Go Home</Link></li>
-                <li><Link onClick={()=>history.goForward()}>Go Fordward</Link></li>
+                <li><button onClick={() => history.goBack()}>Go Back</button></li>
+                <li><button onClick={() => history.goForward()}>Go Forward</button></li>
             </ul>
-        </nav>
+            </div>
+        </NavWrapper>
     )
 }
 

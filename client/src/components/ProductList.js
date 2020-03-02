@@ -4,6 +4,8 @@ import { startGetProducts } from '../redux/actions/products'
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import ProductCard from "./ProductCard";
+import { ProductsWrapper } from "./ProductListStyle";
+import Spinner from "./Spinner";
 
 function ProductsList() {
     const dispatch = useDispatch();
@@ -16,12 +18,12 @@ function ProductsList() {
     })
 
     return (
-        <div>
+        <ProductsWrapper>
             {products.length > 0 ?
                 products.map(product => <ProductCard key={product.id} {...product}></ProductCard>) :
-                <Loader type="Oval" color="#336699" height={50} width={50} />
+               <Spinner />
             }
-        </div>
+        </ProductsWrapper>
     )
 
 }

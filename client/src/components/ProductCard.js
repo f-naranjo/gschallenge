@@ -1,15 +1,23 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { CardContainer, InfoContainer } from "./ProductCardStyle";
 
-function ProductCard(props){
-    const {name, description, imageFileName} = props
+function ProductCard(props) {
+    const { name, manufacturer, processor, ram, price, imageFileName } = props
     return (
-        <div>
-            <h1>{name}</h1>
-            <p>{description}</p>
+        <CardContainer>
             <img src={`/images/${imageFileName}`}></img>
-            <Link className="button" to={`${name}/detail/`}>View more</Link>
-        </div>
+            <InfoContainer>
+                <h3>{manufacturer}</h3>
+                <h2>{name}</h2>
+                <ul>
+                    <li><span>Processor:</span> {processor}</li>
+                    <li><span>Ram:</span> {ram}GB</li>
+                </ul>
+                <h4>{price}€</h4>
+                <Link to={`${name}/detail/`}>View more</Link>
+            </InfoContainer>
+        </CardContainer>
     )
 }
 

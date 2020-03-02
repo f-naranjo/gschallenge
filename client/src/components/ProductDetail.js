@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { startGetProducts } from '../redux/actions/products';
 import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { ProductWrapper, InfoDetailContainer } from "./ProductDetailStyle";
+import Spinner from "./Spinner";
 
 function ProductDetail(props) {
     const dispatch = useDispatch()
@@ -21,22 +23,27 @@ function ProductDetail(props) {
         const { manufacturer, description, color, price, imageFileName, screen, processor, ram } = product
 
         return (
-            <div>
-                {products.length > 0 &&
-                    <div>
-                        <img src={`/images/${imageFileName}`}></img>
-                        <h1>Name: {name}</h1>
-                        <h2>Manufacturer: {manufacturer}</h2>
-                        <p>Description: {description}</p>
-                        <p>Price: {price}</p>
-                    </div>
-                }
-            </div>
+            <ProductWrapper>
+                <img src={`/images/${imageFileName}`}></img>
+                <InfoDetailContainer>
+                    <h1>{name}</h1>
+                    <h2>Designed by {manufacturer}</h2>
+                    <p>{description}</p>
+                    <h3>{name} Specs:</h3>
+                    <ul>
+                        <li>Processor: {processor}</li>
+                        <li>Ram: {ram}GB</li>
+                        <li>Screen: {screen}</li>
+                        <li>Color: {color}</li>
+                    </ul>
+                    <h4>{price}€</h4>
+                </InfoDetailContainer>
+            </ProductWrapper>
         )
 
     } else {
         return (
-            <Loader type="Oval" color="#336699" height={50} width={50} />
+            <Spinner/>
         )
     }
 
