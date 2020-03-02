@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Loader from 'react-loader-spinner';
 import colors from '../styles/colors';
 import { SpinnerWrap } from "./SpinnerStyle";

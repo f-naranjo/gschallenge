@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { startGetProducts } from '../redux/actions/products';
-import Loader from 'react-loader-spinner';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ProductWrapper, InfoDetailContainer } from "./ProductDetailStyle";
 import Spinner from "./Spinner";
@@ -24,7 +23,7 @@ function ProductDetail(props) {
 
         return (
             <ProductWrapper>
-                <img src={`/images/${imageFileName}`}></img>
+                <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
                 <InfoDetailContainer>
                     <h1>{name}</h1>
                     <h2>Designed by {manufacturer}</h2>
@@ -46,8 +45,6 @@ function ProductDetail(props) {
             <Spinner/>
         )
     }
-
-    //console.log(product)
 
 }
 

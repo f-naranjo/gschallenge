@@ -17,7 +17,6 @@ export const successGetProducts = (payload) => {
 }
 
 export const getProductDetail = (payload) => {
-    console.log("entra en getproduct")
     return {
         type: 'FAILED_GET_PRODUCTS',
         payload

@@ -2,10 +2,8 @@ import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import { NavWrapper } from './NavBarStyle'
 
-function NavBar(props) {
+function NavBar() {
     const history = useHistory()
-    console.log("estoy es history")
-    console.log(history)
     return (
         <NavWrapper>
             <div>

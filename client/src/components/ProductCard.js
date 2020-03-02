@@ -6,7 +6,7 @@ function ProductCard(props) {
     const { name, manufacturer, processor, ram, price, imageFileName } = props
     return (
         <CardContainer>
-            <img src={`/images/${imageFileName}`}></img>
+            <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
             <InfoContainer>
                 <h3>{manufacturer}</h3>
                 <h2>{name}</h2>
