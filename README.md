@@ -1,7 +1,6 @@
 # Phone Catalogue Challenge
 
-There are two folders:
-
+Project Structure:
 - **Server** : REST API Built with NodeJS & Express
 - **Client** : APP Built in React / Redux / Sagas / Styled Components
 
@@ -39,6 +38,6 @@ npm start
 
 ## Usage
 
-Go to [http://localhost:3000](http://localhost:3000) to see the phone catalogue and navigate through links to see phone details.
+Go to [http://localhost:3000](http://localhost:3000) to see the phones catalogue and navigate through links to see phone details.
 
 Francisco Naranjo
