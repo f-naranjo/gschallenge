@@ -4,6 +4,7 @@ import { CardContainer, InfoContainer } from "./ProductCardStyle";
 
 function ProductCard(props) {
     const { name, manufacturer, processor, ram, price, imageFileName } = props
+
     return (
         <CardContainer>
             <img src={`/images/${imageFileName}`} alt={imageFileName}></img>

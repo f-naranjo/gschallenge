@@ -29,7 +29,7 @@ npm i
 
 Create **.env** file inside **client** folder with this settings:
 ```bash
-PORT=3000
+REACT_APP_API_URL=http://localhost:4000
 ```
 
 Run the App:
