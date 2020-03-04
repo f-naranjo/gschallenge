@@ -4,7 +4,7 @@ import { CardContainer, InfoContainer } from "./ProductCardStyle";
 
 function ProductCard(props) {
     const { name, manufacturer, processor, ram, price, imageFileName } = props
-    const parseName = name.split(" ").join("-")
+    const nameToUrl = name.split(" ").join("-")
     return (
         <CardContainer>
             <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
@@ -16,7 +16,7 @@ function ProductCard(props) {
                     <li><span>Ram:</span> {ram}GB</li>
                 </ul>
                 <h4>{price}€</h4>
-                <Link to={`${parseName}/detail/`}>View more</Link>
+                <Link to={`${nameToUrl}/detail/`}>View more</Link>
             </InfoContainer>
         </CardContainer>
     )
