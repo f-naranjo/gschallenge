@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { startGetProducts } from '../redux/actions';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ProductWrapper, InfoDetailContainer } from "./ProductDetailStyle";
 import Spinner from "./Spinner";
 
 function ProductDetail() {
-    const dispatch = useDispatch()
     let { name } = useParams()
     const products = useSelector(state => state.products)
+    const dispatch = useDispatch()
+    const originalName = name.split("-").join(" ")
 
     useEffect(() => {
         if (products.length === 0) {
@@ -17,31 +17,34 @@ function ProductDetail() {
         }
     })
 
-    if (products.length === 0){
-        return <Spinner/>
-    } 
-      
-    const [product] = products.filter(product => product.name === name)
-    const { manufacturer, description, color, price, imageFileName, screen, processor, ram } = product
+    if (products.length === 0) {
+        return <Spinner />
+    }
 
-    return (
-        <ProductWrapper>
-            <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
-            <InfoDetailContainer>
-                <h1>{name}</h1>
-                <h2>Designed by {manufacturer}</h2>
-                <p>{description}</p>
-                <h3>{name} Specs:</h3>
-                <ul>
-                    <li>Processor: {processor}</li>
-                    <li>Ram: {ram}GB</li>
-                    <li>Screen: {screen}</li>
-                    <li>Color: {color}</li>
-                </ul>
-                <h4>{price}€</h4>
-            </InfoDetailContainer>
-        </ProductWrapper>
-    )
+    const [product] = products.filter(product => product.name === originalName)
+
+    if (product) {
+        const { name, manufacturer, description, color, price, imageFileName, screen, processor, ram } = product
+
+        return (
+            <ProductWrapper>
+                <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
+                <InfoDetailContainer>
+                    <h1>{name}</h1>
+                    <h2>Designed by {manufacturer}</h2>
+                    <p>{description}</p>
+                    <h3>{name} Specs:</h3>
+                    <ul>
+                        <li>Processor: {processor}</li>
+                        <li>Ram: {ram}GB</li>
+                        <li>Screen: {screen}</li>
+                        <li>Color: {color}</li>
+                    </ul>
+                    <h4>{price}€</h4>
+                </InfoDetailContainer>
+            </ProductWrapper>
+        )
+    }else return <Redirect to="/404"/>
 
 }
 

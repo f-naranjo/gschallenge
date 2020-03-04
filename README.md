@@ -38,6 +38,17 @@ npm start
 
 ## Usage
 
-Go to [http://localhost:3000](http://localhost:3000) to see the phones catalogue and navigate through links to see phone details.
+Go to [http://localhost:3000](http://localhost:3000) to see the phone catalogue and click the links to see phone details.
+
+You can also navigate to a Phone detail Page by going to the direct link following this structure:
+```bash
+http://localhost/3000/{PhoneName}/detail
+```
+Example: [http://localhost:3000/Iphone-7/detail](http://localhost:3000/Iphone-7/detail)
+
+If the user tries to go to a link that doesn't exist he will be redirected to a 404 page.
+
+If the server send a bad request, the user will be notified by an error message.
+
 
 Francisco Naranjo
