@@ -29,14 +29,8 @@ PORT=4000
 Now we can run the server:
 
 ```bash
-$ npm run dev
+$ npm run start
 ```
-
-If for any reason the server does not start, you may have to install nodemon:
-```
-$ npm i nodemon
-```
-
 Now we need to set up the **client** folder:
 
 ### Client:
