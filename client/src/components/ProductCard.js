@@ -10,7 +10,7 @@ function ProductCard(props) {
             <img src={`/images/${imageFileName}`} alt={imageFileName}></img>
             <InfoContainer>
                 <h3>{manufacturer}</h3>
-                <h2>{parseName}</h2>
+                <h2>{name}</h2>
                 <ul>
                     <li><span>Processor:</span> {processor}</li>
                     <li><span>Ram:</span> {ram}GB</li>
