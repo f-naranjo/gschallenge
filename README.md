@@ -28,7 +28,6 @@ PORT=4000
 ```
 Now we can run the server:
 
-Run the server:
 ```bash
 $ npm run dev
 ```
